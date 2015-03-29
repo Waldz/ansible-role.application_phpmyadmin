@@ -1,0 +1,26 @@
+---
+- name: APT package installed
+  apt: pkg=phpmyadmin state=latest install_recommends=no
+
+
+- name: Public directory exists
+  file: >
+    state=link
+    src="/usr/share/phpmyadmin/"
+    dest="{{ phpmyadmin_path_public }}"
+    owner=www-data
+
+
+#- name: MySQL database is created
+#  mysql_db:
+#    state=present
+#    name="{{ phpmyadmin_db_name }}"
+#
+#
+#- name: MySQL DB configuration
+#  template:
+#    src="{{ item }}"
+#    dest="/{{ item }}"
+#    owner=www-data
+#  with_items:
+#    - etc/phpmyadmin/config-db.php

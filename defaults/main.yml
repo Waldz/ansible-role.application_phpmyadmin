@@ -1,0 +1,6 @@
+---
+phpmyadmin_path_public: /var/www/default/pma
+
+phpmyadmin_db_name: phpmyadmin
+phpmyadmin_db_user: phpmyadmin
+#phpmyadmin_db_pass:
