@@ -11,12 +11,20 @@
     owner=www-data
 
 
-#- name: MySQL database is created
-#  mysql_db:
-#    state=present
-#    name="{{ phpmyadmin_db_name }}"
-#
-#
+- name: MySQL database is created
+  mysql_db:
+    state=present
+    name="{{ phpmyadmin_db_name }}"
+
+
+- name: MySQL user is created
+  mysql_user:
+    state=present
+    name="{{ phpmyadmin_db_user }}"
+    password="{{ phpmyadmin_db_pass }}"
+    priv="{{ phpmyadmin_db_name }}.*:ALL"
+
+
 #- name: MySQL DB configuration
 #  template:
 #    src="{{ item }}"
